@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Controllers
 {
@@ -18,7 +19,9 @@ namespace WebApp.Controllers
         }
         public IActionResult Index()
         {
-            return View(db.Adresses.ToList());
+            //var adresses = db.Adresses.Include(systemtype => systemtype.DomofonSystem);
+            var adresses = db.Adresses.Include(domofonkey => domofonkey.DomofonKey).Include(systemtype => systemtype.DomofonSystem);
+            return View(adresses.ToList());
         }
     }
 }

@@ -9,7 +9,7 @@ namespace WebApp.Models
     {
         public static void Initialize(SubscriberContext context)
         {
-            if (!context.Adresses.Any())
+            if (!context.Subscribers.Any())
             {
                 context.Companies.Add(
                     new Company {
