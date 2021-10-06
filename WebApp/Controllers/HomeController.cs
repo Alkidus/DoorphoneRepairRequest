@@ -17,11 +17,74 @@ namespace WebApp.Controllers
         {
             db = context;
         }
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            //var adresses = db.Adresses.Include(systemtype => systemtype.DomofonSystem);
-            var adresses = db.Adresses.Include(domofonkey => domofonkey.DomofonKey).Include(systemtype => systemtype.DomofonSystem);
-            return View(adresses.ToList());
+            return View(await db.Adresses.Include(domofonkey => 
+            domofonkey.DomofonKey).Include(systemtype => 
+            systemtype.DomofonSystem).ToListAsync());
         }
+        [HttpPost]
+        public async Task<IActionResult> Create(Adress adress)
+        {
+            db.Adresses.Add(adress);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        /// 
+
+        [HttpPost]
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id != null)
+            {
+                Adress adress = await db.Adresses.FirstOrDefaultAsync(p => p.Id == id);
+                if (adress != null)
+                    return View(adress);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Adress adress)
+        {
+            db.Adresses.Update(adress);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        [ActionName("Delete")]
+        public async Task<IActionResult> ConfirmDelete(int? id)
+        {
+            if (id != null)
+            {
+                Adress adress = await db.Adresses.FirstOrDefaultAsync(p => p.Id == id);
+                if (adress != null)
+                    return View(adress);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id != null)
+            {
+                Adress adress = await db.Adresses.FirstOrDefaultAsync(p => p.Id == id);
+                if (adress != null)
+                {
+                    db.Adresses.Remove(adress);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+            }
+            return NotFound();
+        }
+
+
+
+
+   
     }
 }
