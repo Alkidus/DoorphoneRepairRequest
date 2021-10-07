@@ -32,8 +32,6 @@ namespace WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        /// 
-
         [HttpPost]
 
         public async Task<IActionResult> Edit(int? id)
