@@ -1,8 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<WebApp.Models.Adress>
+    @{
+    //ViewData["Title"] = "Список адресов";
+    Layout = null;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Журнал заявок - Адреса</title>
+    </head>
+    <body>
+        <h1>Список адресов</h1>
+        @foreach (var adress in Model) {<h2>город @adress.City</h2> break;}
+
+        <hr />
+        <a href="~/Home/AddAdress">Добавить новый адрес</a>
+        <hr />
+        <table>
+            <tr>
+                <td>| Улица</td>
+                <td>| № дома</td>
+                <td>| Корпус</td>
+                <td>| № подъезда</td>
+                <td>| № договора</td>
+                <td>| Кол-во кв.</td>
+                <td>| Кол-во дв.</td>
+                <td>| Система</td>
+                <td>| Ключи</td>
+                <td></td>
+            </tr>
+            @foreach (var adress in Model)
+        {
+            <tr>
+                <td>|  - @adress.Street</td>
+                <td>| @adress.House</td>
+                <td>| @adress.Corpus</td>
+                <td>| @adress.Entrance</td>
+                <td>| @adress.ContractNumb</td>
+                <td>| @adress.FlatCount</td>
+                <td>| @adress.DoorsCount</td>
+                <td>| @Html.DisplayFor(modelItem => adress.DomofonSystem.DomofonSystemType)</td>
+                <td>| @Html.DisplayFor(modelItem => adress.DomofonKey.DomofonKeyType)</td>
+                <td><a href="~/Home/Adress/@adress.Id">Выбрать</a></td>
+            </tr>
+
+        }
+        </table>
+    </body>
+</html>
