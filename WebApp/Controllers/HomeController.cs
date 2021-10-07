@@ -6,32 +6,78 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        SubscriberContext db;
+        public HomeController(SubscriberContext context)
         {
-            _logger = logger;
+            db = context;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            return View(await db.Adresses.Include(domofonkey => 
+            domofonkey.DomofonKey).Include(systemtype => 
+            systemtype.DomofonSystem).ToListAsync());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(Adress adress)
+        {
+            db.Adresses.Add(adress);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Index()
+        [HttpPost]
+
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id != null)
+            {
+                Adress adress = await db.Adresses.FirstOrDefaultAsync(p => p.Id == id);
+                if (adress != null)
+                    return View(adress);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Adress adress)
+        {
+            db.Adresses.Update(adress);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        [ActionName("Delete")]
+        public async Task<IActionResult> ConfirmDelete(int? id)
+        {
+            if (id != null)
+            {
+                Adress adress = await db.Adresses.FirstOrDefaultAsync(p => p.Id == id);
+                if (adress != null)
+                    return View(adress);
+            }
+            return NotFound();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (id != null)
+            {
+                Adress adress = await db.Adresses.FirstOrDefaultAsync(p => p.Id == id);
+                if (adress != null)
+                {
+                    db.Adresses.Remove(adress);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+            }
+            return NotFound();
         }
     }
 }
