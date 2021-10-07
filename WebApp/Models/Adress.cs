@@ -16,7 +16,9 @@ namespace WebApp.Models
         public string ContractNumb { get; set; } //номер договора
         public int FlatCount { get; set; } //общее количество квартир в поъезде
         public int DoorsCount { get; set; } //общее количество дверей в поъезде
-        public int DomofonSystemId { get; set; } //тип домофонной системы
+        public int? DomofonSystemId { get; set; } //тип домофонной системы
         public int DomofonKeyId { get; set; }//тип или код ключа
+        public DomofonSystem DomofonSystem { get; set; }
+        public DomofonKey DomofonKey { get; set; }
     }
 }
