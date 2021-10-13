@@ -1,2 +1,54 @@
-﻿@{
+﻿@model WebApp.Models.Adress
+@{
+    ViewBag.Title = "Добавление адреса";
 }
+<h2>Добавление адреса</h2>
+
+<form asp-action="AddAdress" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="City" class="control-label">Город</label>
+        <input type="text" asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Street" class="control-label">Улица</label>
+        <input type="text" asp-for="Street" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="House" class="control-label">№ дома</label>
+        <input type="number" asp-for="House" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Corpus" class="control-label">№ корпуса</label>
+        <input type="text" asp-for="Corpus" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Entrance" class="control-label">Номер подезда в доме</label>
+        <input type="number" asp-for="Entrance" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ContractNumb" class="control-label">Номер договора</label>
+        <input type="text" asp-for="ContractNumb" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FlatCount" class="control-label">Общее количество квартир в поъезде</label>
+        <input type="number" asp-for="FlatCount" class="form-control" />
+    </div>    <div class="form-group">
+        <label asp-for="DoorsCount" class="control-label">Общее количество дверей в поъезде</label>
+        <input type="number" asp-for="DoorsCount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DomofonSystem.DomofonSystemType" class="control-label">Тип домофонной системы</label>
+        @*<input type="text" asp-for="DomofonSystem.DomofonSystemType" class="form-control" />*@
+        <br />
+        @Html.DropDownList("DomofonSystem.DomofonSystemType", new SelectList(new string[] { "АДК", "Беркут", "Vizit", "Cyfral", "Беркут SmartEl" }), "Выберите Тип домофонной системы")
+    </div>
+    <div class="form-group">
+        <label asp-for="DomofonKey.DomofonKeyType" class="control-label">Тип ключа</label>
+        @*<input type="text" asp-for="DomofonKey.DomofonKeyType" class="form-control" />*@
+        <br />
+        @Html.DropDownList("DomofonKey.DomofonKeyType", new SelectList(new string[] { "АДК", "Беркут ТМ", "Беркут RC", "Vizit RF-2.1", "Cyfral Dallas" }), "Выберите Тип ключа")
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-default" />
+    </div>
+</form>

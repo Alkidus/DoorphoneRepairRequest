@@ -17,6 +17,10 @@ namespace WebApp.Controllers
         {
             db = context;
         }
+        public IActionResult AddAdress()
+        {
+            return View();
+        }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -25,7 +29,7 @@ namespace WebApp.Controllers
             systemtype.DomofonSystem).ToListAsync());
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Adress adress)
+        public async Task<IActionResult> AddAdress(Adress adress)
         {
             db.Adresses.Add(adress);
             await db.SaveChangesAsync();

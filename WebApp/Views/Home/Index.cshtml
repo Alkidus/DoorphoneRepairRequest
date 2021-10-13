@@ -15,7 +15,7 @@
     @foreach (var adress in Model) {<h2>город @adress.City</h2> break;}
           
     <hr />
-    <a href="~/Home/AddAdress">Добавить новый адрес</a>
+<a asp-action="AddAdress">Добавить новый адрес</a>
     <hr />
     <table>
         <tr>
@@ -28,6 +28,8 @@
             <td>| Кол-во дв.</td>
             <td>| Система</td>
             <td>| Ключи</td>
+            <td></td>
+            <td></td>
             <td></td>
         </tr>
         @foreach (var adress in Model)
@@ -43,6 +45,8 @@
                 <td>| @Html.DisplayFor(modelItem => adress.DomofonSystem.DomofonSystemType)</td>
                 <td>| @Html.DisplayFor(modelItem => adress.DomofonKey.DomofonKeyType)</td>
                 <td><a href="~/Home/Adress/@adress.Id">Выбрать</a></td>
+                <td><a href="~/Home/Adress/@adress.Id">Изменить</a></td>
+                <td><a href="~/Home/Adress/@adress.Id">Удалить</a></td>
             </tr>
 
         }
