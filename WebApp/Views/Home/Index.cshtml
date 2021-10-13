@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<WebApp.Models.Adress>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,10 +11,12 @@
 </head>
 <body>
     <h1>Список адресов</h1>
-    @foreach (var adress in Model) {<h2>город @adress.City</h2> break;}
-          
+    @foreach (var adress in Model)
+    {<h2>город @adress.City</h2>break;
+}
+
     <hr />
-<a asp-action="AddAdress">Добавить новый адрес</a>
+    <a asp-action="AddAdress">Добавить новый адрес</a>
     <hr />
     <table>
         <tr>

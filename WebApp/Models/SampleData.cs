@@ -13,12 +13,12 @@ namespace WebApp.Models
             {
                 context.Companies.Add(
                     new Company {
-                        CompanyName = "К.С-Инвест",
-                        CompanyAdress = "г.Чернигов, ул. Родимцева 14",//адрес
-                        CompanyPhone = "+38 (0462) 614-681",//тедефон
-                        CompanyAccount = "UA133052990000026008006300527",//расчетный счет в банке
-                        CompanyCode = "33660167",//код ЕДРПОУ
-                        CompanyBankCode = "305299"// МФО банка
+                        Name = "К.С-Инвест",
+                        Adress = "г.Чернигов, ул. Родимцева 14",//адрес
+                        Phone = "+38 (0462) 614-681",//тедефон
+                        Account = "UA133052990000026008006300527",//расчетный счет в банке
+                        Code = "33660167",//код ЕДРПОУ
+                        BankCode = "305299"// МФО банка
                     }
                 );
                 context.DomofonHandsets.AddRange(
