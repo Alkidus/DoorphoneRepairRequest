@@ -10,7 +10,7 @@ namespace WebApp.Models
         public int Id { get; set; }
         public string City { get; set; }//город
         public string Street { get; set; }//улица
-        public int House { get; set; }//№ дома
+        public int House { get; set; }//№ дома  -- //№ дома - а в мене 24а, що робити? --для этих целей есть Corpus
         public string Corpus { get; set; }//№ корпуса
         public int Entrance { get; set; } //номер подезда в доме
         public string ContractNumb { get; set; } //номер договора

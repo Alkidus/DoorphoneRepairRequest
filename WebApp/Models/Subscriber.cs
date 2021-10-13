@@ -23,7 +23,7 @@ namespace WebApp.Models
         public int DomofonHandsetId { get; set; } //тип трубки
         public int DomofonKeyId { get; set; } //тип ключа
         public string Comments { get; set; } //коментарии
-        public Nullable<int> RepairRequestId { get; set; } //заявки
+        public int RepairRequestId { get; set; } //заявки
         public virtual ICollection<RepairRequest> RepairRequests { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace WebApp.Models
         public DateTime DateRepairBegin { get; set; } //дата поступления заявки
         public int AdressId { get; set; } //адрес заявки, адреса могут быть не из списков, частные вызовы к неабонентам
         public int Flat { get; set; } //номер квартиры
-        public string DescriptionFromSub { get; set; } //описание неисправности
+        public string DescriptionFromSubscriber { get; set; } //описание неисправности
         public DateTime DateRepairEnd { get; set; } //дата выполнения ремонта
-        public string DescriptionFromServ { get; set; } // описание от мастеров что было отремонтировано, какие детали израсходованы
+        public string DescriptionFromServiceman { get; set; } // описание от мастеров что было отремонтировано, какие детали израсходованы
         public bool Status { get; set; } // статус заявки, true - в работе; false - выполнена
         public Nullable<int> SubscriberId { get; set; }
         public string Comments { get; set; } //дополнительные коментарии
