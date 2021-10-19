@@ -1,10 +1,10 @@
 ﻿@model WebApp.Models.Adress
 @{
-    ViewBag.Title = "Добавление адреса";
+    ViewBag.Title = "Редактирование адреса";
 }
-<h2>Добавление адреса</h2>
+<h2>Редактирование адреса</h2>
 
-<form asp-action="AddAdress" asp-controller="Home">
+<form asp-action="EditAdress" asp-controller="Home" asp-route-id="@Model.Id">
     <div class="form-group">
         <label asp-for="City" class="control-label">Город</label>
         <input type="text" asp-for="City" class="form-control" />

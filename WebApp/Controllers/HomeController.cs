@@ -36,9 +36,7 @@ namespace WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> EditAdress(int? id)
         {
             if (id != null)
             {
@@ -49,15 +47,15 @@ namespace WebApp.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(Adress adress)
+        public async Task<IActionResult> EditAdress(Adress adress)
         {
             db.Adresses.Update(adress);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
         [HttpGet]
-        [ActionName("Delete")]
-        public async Task<IActionResult> ConfirmDelete(int? id)
+        [ActionName("DeleteAdress")]
+        public async Task<IActionResult> ConfirmDeleteAdress(int? id)
         {
             if (id != null)
             {
@@ -69,7 +67,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> DeleteAdress(int? id)
         {
             if (id != null)
             {

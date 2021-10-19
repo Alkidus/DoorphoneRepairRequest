@@ -1,0 +1,32 @@
+﻿@model WebApp.Models.Adress
+@{ ViewBag.Title = "Удаление адреса";}
+<h2 style="color:red">Вы действительно хотите удалить следующий адрес?</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Улица</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>Дом</dt>
+        <dd>
+            @Html.DisplayFor(model => model.House)
+        </dd>
+        <dt>Корпус</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Corpus)
+        </dd>
+        <dt>Подъезд</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Entrance)
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="Home" asp-action="DeleteAdress" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger" value="Удалить" />
+            </div>
+        </form>
+    </div>
+</div>

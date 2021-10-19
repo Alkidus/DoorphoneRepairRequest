@@ -45,9 +45,9 @@
                 <td>| @adress.DoorsCount</td>
                 <td>| @Html.DisplayFor(modelItem => adress.DomofonSystem.DomofonSystemType)</td>
                 <td>| @Html.DisplayFor(modelItem => adress.DomofonKey.DomofonKeyType)</td>
-                <td><a href="~/Home/Adress/@adress.Id">Выбрать</a></td>
-                <td><a href="~/Home/Adress/@adress.Id">Изменить</a></td>
-                <td><a href="~/Home/Adress/@adress.Id">Удалить</a></td>
+                <td><a asp-action="SelectAdress" asp-controller="Home" asp-route-id="@adress.Id">Выбрать</a></td>
+                <td><a asp-action="EditAdress" asp-controller="Home" asp-route-id="@adress.Id">Изменить</a></td>
+                <td><a asp-action="DeleteAdress" asp-controller="Home" asp-route-id="@adress.Id">Удалить</a></td>
             </tr>
 
         }
