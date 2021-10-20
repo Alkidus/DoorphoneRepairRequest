@@ -20,16 +20,6 @@ namespace WebApp.Controllers
             db = context;
         }
 
-        //public List<SelectListItem> GetDomofonSystems()
-        //{
-        //    List<SelectListItem> dfsytemsList = (from dfs in db.DomofonSystems.AsEnumerable()
-        //                                         select new SelectListItem
-        //                                         {
-        //                                             Text = dfs.DomofonSystemType,
-        //                                             Value = dfs.Id.ToString()
-        //                                         }).ToList();
-        //    return dfsytemsList;
-        //}
         public IActionResult AddAdress()
         {
             List<DomofonSystem> dfSystems = new List<DomofonSystem>();
@@ -56,9 +46,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAdress(Adress adress)
         {
-            //SelectList dfSystems = new SelectList(db.DomofonSystems, "DomofonSystemType", "_Name");
-            //ViewBag.AllDomofonSystems = dfSystems;
-            
+           
             db.Adresses.Add(adress);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
