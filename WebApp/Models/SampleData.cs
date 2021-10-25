@@ -21,7 +21,8 @@ namespace WebApp.Models
                         BankCode = "305299"// МФО банка
                     }
                 );
-                context.DomofonHandsets.AddRange(
+
+            context.DomofonHandsets.AddRange(
                     new DomofonHandset
                     {
                         DomofonHandsetType = "SmartEl"
@@ -51,7 +52,8 @@ namespace WebApp.Models
                         DomofonHandsetType = "Другое"
                     }
                 );
-                context.DomofonKeys.AddRange(
+
+            context.DomofonKeys.AddRange(
                     new DomofonKey
                     {
                         DomofonKeyType = "АДК"
@@ -62,23 +64,19 @@ namespace WebApp.Models
                     },
                     new DomofonKey
                     {
-                        DomofonKeyType = "Беркут RC",
-                        DomofonKeyCode = "310"
+                        DomofonKeyType = "Беркут RC 310"
                     },
                     new DomofonKey
                     {
-                        DomofonKeyType = "Беркут RC",
-                        DomofonKeyCode = "T470"
+                        DomofonKeyType = "Беркут RC T470"
                     },
                     new DomofonKey
                     {
-                        DomofonKeyType = "Беркут RC",
-                        DomofonKeyCode = "2K4"
+                        DomofonKeyType = "Беркут RC 2K4"
                     },
                     new DomofonKey
                     {
-                        DomofonKeyType = "Беркут RC",
-                        DomofonKeyCode = "T6K8"
+                        DomofonKeyType = "Беркут RC T6K8"
                     },
                     new DomofonKey
                     {
@@ -89,7 +87,8 @@ namespace WebApp.Models
                         DomofonKeyType = "Cyfral Dallas"
                     }
                 );
-                context.DomofonSystems.AddRange(
+
+            context.DomofonSystems.AddRange(
                     new DomofonSystem
                     {
                         DomofonSystemType = "АДК"
@@ -111,7 +110,8 @@ namespace WebApp.Models
                         DomofonSystemType = "Беркут SmartEl"
                     }
                 );
-                context.Adresses.AddRange(
+
+            context.Adresses.AddRange(
                     new Adress
                     {
                         City = "Чернигов",
@@ -150,8 +150,10 @@ namespace WebApp.Models
                         DomofonKeyId = 8
                     }
                 );
-                context.Subscribers.AddRange(
-                    new Subscriber {
+
+            context.Subscribers.AddRange(
+                    new Subscriber
+                    {
                         Name = "Тамара",
                         Surname = "Мельникова",
                         Phone = "+380683871920",
@@ -232,7 +234,7 @@ namespace WebApp.Models
                 );
 
 
-                context.SaveChanges();
+            context.SaveChanges();
             }
         }
     }

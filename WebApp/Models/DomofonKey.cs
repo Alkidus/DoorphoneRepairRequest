@@ -9,11 +9,10 @@ namespace WebApp.Models
     {
         public int Id { get; set; }
         public string DomofonKeyType { get; set; } //тип домофонного ключа
-        public string DomofonKeyCode { get; set; } //код домофонного ключа
-        public ICollection<Adress> Adresses { get; set; }
-        public DomofonKey()
-        {
-            Adresses = new List<Adress>();
-        }
+        //public ICollection<Adress> Adresses { get; set; }
+        //public DomofonKey()
+        //{
+        //    Adresses = new List<Adress>();
+        //}
     }
 }

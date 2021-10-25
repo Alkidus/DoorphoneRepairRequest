@@ -54,6 +54,18 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> EditAdress(int? id)
         {
+            List<DomofonSystem> dfSystems = new List<DomofonSystem>();
+            foreach (var el in db.DomofonSystems)
+            {
+                dfSystems.Add(el);
+            }
+            ViewBag.AllDomofonSystems = new SelectList(dfSystems, "Id", "DomofonSystemType");
+            List<DomofonKey> dfKeys = new List<DomofonKey>();
+            foreach (var el in db.DomofonKeys)
+            {
+                dfKeys.Add(el);
+            }
+            ViewBag.AllDomofonKeys = new SelectList(dfKeys, "Id", "DomofonKeyType");
             if (id != null)
             {
                 Adress adress = await db.Adresses.FirstOrDefaultAsync(p => p.Id == id);
