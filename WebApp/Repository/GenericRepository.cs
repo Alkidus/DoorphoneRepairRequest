@@ -78,9 +78,9 @@ namespace WebApp.Repository
             dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
-        public virtual void Save()
-        {
-            context.SaveChanges();
-        }
+        //public virtual void Save()
+        //{
+        //    context.SaveChanges();
+        //}
     }
 }
