@@ -1,0 +1,45 @@
+using System;
+using Xunit;
+using WebApp.Controllers;
+using Microsoft.AspNetCore.Mvc;
+
+namespace TestProject
+{
+    public class UnitTest1
+    {
+        [Fact]
+        public void IndexViewDataMessage()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.IndexHello() as ViewResult;
+
+            // Assert
+            Assert.Equal("Hello world!", result?.ViewData["Message"]);
+        }
+
+        [Fact]
+        public void IndexViewResultNotNull()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+            // Act
+            ViewResult result = controller.IndexHello() as ViewResult;
+            // Assert
+            Assert.NotNull(result);
+        }
+
+        [Fact]
+        public void IndexViewNameEqualIndex()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+            // Act
+            ViewResult result = controller.IndexHello() as ViewResult;
+            // Assert
+            Assert.Equal("IndexHello", result?.ViewName);
+        }
+    }
+}

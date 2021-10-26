@@ -61,9 +61,6 @@ namespace WebApp.Models
             domofonkey.DomofonKey).Include(systemtype =>
             systemtype.DomofonSystem).ToList();
         }
-        //public IEnumerable<DomofonKey> GetAllList()
-        //{
-        //    return db.DomofonKeys;
-        //}
+
     }
 }

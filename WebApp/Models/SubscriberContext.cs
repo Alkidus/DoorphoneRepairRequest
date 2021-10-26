@@ -23,9 +23,9 @@ namespace WebApp.Models
             Database.EnsureCreated();
         }
 
-        //public SubscriberContext() : base()
-        //{
-        //    Database.EnsureCreated();
-        //}
+        public SubscriberContext() : base()
+        {
+            Database.EnsureCreated();
+        }
     }
 }

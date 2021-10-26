@@ -60,6 +60,11 @@ namespace WebApp.Controllers
         //    ViewBag.AllDomofonKeys = new SelectList(dfKeys, "Id", "DomofonKeyType");
         //    return View();
         //}
+        public IActionResult IndexHello()
+        {
+            ViewData["Message"] = "Hello!";
+            return View("IndexHello");
+        }
         [HttpGet]
         public ActionResult Index()
         {
