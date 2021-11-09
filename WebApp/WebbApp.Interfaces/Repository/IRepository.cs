@@ -10,7 +10,7 @@ namespace WebApp.Repository
         where T : class
     {
         IEnumerable<T> GetAllList(); // получение всех объектов
-        T GetByID(int id); // получение одного объекта по id
+        T GetByID(int? id); // получение одного объекта по id
         void Create(T item); // создание объекта
         void Edit(T item); // обновление объекта
         void Delete(int id); // удаление объекта по id

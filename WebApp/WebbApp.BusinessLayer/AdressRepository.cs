@@ -32,9 +32,9 @@ namespace WebApp.Models
             db.Entry(item).State = EntityState.Modified;
         }
 
-        public Adress GetByID(int id)
+        public Adress GetByID(int? id)
         {
-            return db.Adresses.Find(id);
+            return db.Adresses.Find(id.Value);
         }
 
         public IEnumerable<Adress> GetAllList()
@@ -45,21 +45,6 @@ namespace WebApp.Models
         public void Save()
         {
             db.SaveChanges();
-        }
-
-        public IEnumerable<DomofonKey> GetAllDomofonKeys()
-        {
-            return db.DomofonKeys.ToList();
-        }
-        public IEnumerable<DomofonSystem> GetAllDomofonSystems()
-        {
-            return db.DomofonSystems.ToList();
-        }
-        public IEnumerable<Adress> GetAllAdressToIndex()
-        {
-            return db.Adresses.Include(domofonkey =>
-            domofonkey.DomofonKey).Include(systemtype =>
-            systemtype.DomofonSystem).ToList();
         }
 
     }

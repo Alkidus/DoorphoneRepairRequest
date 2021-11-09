@@ -36,9 +36,9 @@ namespace WebApp.Models
             return db.DomofonKeys;
         }
 
-        public DomofonKey GetByID(int id)
+        public DomofonKey GetByID(int? id)
         {
-            return db.DomofonKeys.Find(id);
+            return db.DomofonKeys.Find(id.Value);
         }
 
         public void Save()

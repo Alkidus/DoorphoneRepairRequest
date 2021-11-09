@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApp.Models;
 using Microsoft.EntityFrameworkCore;
-
+using WebApp.Repository;
 
 namespace WebApp
 {
@@ -28,6 +28,7 @@ namespace WebApp
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<SubscriberContext>(options => options.UseSqlServer(connection));
+            services.AddTransient<IRepository<Adress>, AdressRepository>();
             services.AddControllersWithViews();
         }
 
